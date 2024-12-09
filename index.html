@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App Link</title>
+  <title>Redirecting...</title>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Try opening the app with a custom scheme or intent
-      const appUrl = "https://google.com"; // Replace with your app's custom URL scheme or intent
-      const fallbackUrl = "https://sinhasarwajeet.github.io/fallback.html"; // Fallback page
+    // Function to detect Android device
+    const isAndroid = /android/i.test(navigator.userAgent);
 
-      // Create an invisible iframe to attempt to open the app
-      const iframe = document.createElement("iframe");
-      iframe.style.display = "none";
-      iframe.src = appUrl;
-      document.body.appendChild(iframe);
+    // Redirect URLs
+    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.your.package.name"; // Replace with your app's Play Store URL
+    const fallbackMessage = "This platform is not supported for app installation. Please use an Android device to download the app.";
 
-      // If the app does not open within 2 seconds, redirect to fallback
-      setTimeout(() => {
-        window.location.href = fallbackUrl;
-      }, 2000);
-    });
+    // Handle redirection based on platform
+    if (isAndroid) {
+      // If it's an Android device, redirect to the Play Store
+      window.location.href = playStoreUrl;
+    } else {
+      // For other devices, show a message that the platform is not supported
+      document.body.innerHTML = `<p>${fallbackMessage}</p>`;
+    }
   </script>
 </head>
 <body>
-  <p>Redirecting to the app...</p>
+  <p>Redirecting...</p>
 </body>
 </html>
