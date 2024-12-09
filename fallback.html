@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
-  <script>
-    // Redirect to Google Play Store for Android devices
-    const userAgent = navigator.userAgent.toLowerCase();
-    if (/android/.test(userAgent)) {
-      // Replace the URL with your app's Play Store link
-      window.location.href = "https://www.wikipedia.org/";
-    } else {
-      // Optional: Show a message or redirect elsewhere for non-Android devices
-      document.body.innerHTML = "Please visit this page on an Android device to download the app.";
-    }
-  </script>
+  <title>Get the App</title>
 </head>
 <body>
-  <p>Redirecting to the app store...</p>
+  <p>Redirecting...</p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Detect Android devices and redirect to the Play Store
+      const userAgent = navigator.userAgent.toLowerCase();
+      if (/android/.test(userAgent)) {
+        // Replace with your app's Play Store link
+        window.location.href = "https://play.google.com/store/apps/details?id=com.your.package.name";
+      } else {
+        // Show a fallback message for non-Android devices
+        document.body.innerHTML = "This app is not available for your platform.";
+      }
+    });
+  </script>
 </body>
 </html>
