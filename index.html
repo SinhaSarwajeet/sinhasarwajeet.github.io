@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
   <script>
-    // Function to detect Android device
-    const isAndroid = /android/i.test(navigator.userAgent);
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to detect Android device
+      const isAndroid = /android/i.test(navigator.userAgent);
 
-    // Redirect URLs
-    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.your.package.name"; // Replace with your app's Play Store URL
-    const fallbackMessage = "This platform is not supported for app installation. Please use an Android device to download the app.";
+      // Redirect URLs
+      const playStoreUrl = "https://play.google.com/store/apps/details?id=com.your.package.name"; // Replace with your app's Play Store URL
+      const fallbackMessage = "This platform is not supported for app installation. Please use an Android device to download the app.";
 
-    // Handle redirection based on platform
-    if (isAndroid) {
-      // If it's an Android device, redirect to the Play Store
-      window.location.href = playStoreUrl;
-    } else {
-      // For other devices, show a message that the platform is not supported
-      document.body.innerHTML = `<p>${fallbackMessage}</p>`;
-    }
+      // Handle redirection based on platform
+      if (isAndroid) {
+        // If it's an Android device, redirect to the Play Store
+        window.location.href = playStoreUrl;
+      } else {
+        // For other devices, show a message that the platform is not supported
+        document.body.innerHTML = `<p>${fallbackMessage}</p>`;
+      }
+    });
   </script>
 </head>
 <body>
